@@ -1,0 +1,15 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+        // 动态递归
+        int sum = 0;
+        int res = nums[0];
+        for(int num:nums) {
+            // 上一步和小于0，舍弃
+            sum = sum > 0 ? sum+num : num;
+            if(sum > res) {
+                res = sum;
+            }
+        }
+        return res;
+    }
+}
